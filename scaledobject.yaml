@@ -1,0 +1,21 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: time-based-scaler-packops
+  namespace: default
+spec:
+  scaleTargetRef:
+    name: nginx-deployment
+    kind: Deployment
+    apiVersion: apps/v1
+  minReplicaCount: 1
+  maxReplicaCount: 10
+  cooldownPeriod: 30
+  triggers:
+  - type: cron
+    metadata:
+      # Required
+      timezone: Australia/Melbourne  # The acceptable values would be a value from the IANA Time Zone Database.
+      start: 30 8 * * *        # At 8:30 AM
+      end: 35 8 * * *         # At 8:35 AM
+      desiredReplicas: "10"
