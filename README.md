@@ -13,3 +13,4 @@ This is taken from https://medium.com/@farshadnick/how-to-scale-based-on-specifi
 https://www.redhat.com/en/blog/custom-metrics-autoscaler-on-openshift
 
 
+For the scaling down, it took a little while but eventually returned to 1 PoD, not sure why.
